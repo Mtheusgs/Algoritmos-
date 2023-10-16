@@ -1,0 +1,86 @@
+def lin(): 
+    print("="*50) 
+lista=[]  
+lista2=[] 
+lista3=[]   
+lin() 
+print("              Correção de Provas ")  
+lin()   
+def sis(): 
+    global lista #variável lista é global 
+    global lista2 
+    global lista3 
+    global m
+    print("\n                Menu de Opções")  
+    x=(input("\n1-Gabarito \n2-Corigir Prova \n3-Mostrar gabarito \n4-sair \nEscolha uma opção :  "))   
+    if x=='1' or x=="Gabarito" or x=="gabarito": 
+        q=(input("Prova ou simulado : ")) 
+        if q== 'Prova' or q == 'prova': 
+            m=int(input("Qual a quantidade de questões : "))   
+            k=0
+            for i in range(m): 
+                k+=1
+                l=(input(f"A letra referente a resposta da questão {k} : ")) #Perguntar as respostas 
+                lista.append(l) 
+            p=0     
+            for i in lista:  
+                p+=1
+                print(f"{p}.{i} ", end=' ')   
+                k=lista 
+            return sis() 
+        if q=='simulado' or q=='Simulado': # Caso seja simulado
+            l=0 
+            r=int(input("Quantas matérias : ")) 
+            for i in range(r): 
+                l+=1
+                j=input(f"Nome da matéria {l}: ") 
+                lista2.append(j)
+            m=int(input("Qual a quantidade de questões por matéria : "))  
+            for i in lista2:
+                print(f"Resposta da matéria {i}") 
+                n=0
+                for j in range(m): 
+                    n+=1  
+                    z=input(f"A letra referente a resposta da questão {n} :")  
+                    lista.append(z) 
+            return sis()        
+    elif x=='3':
+        k=0                                      
+        for i in lista:
+                k+=1      #Mostrar gabarito
+                print(f"{k}.{i}") 
+        return sis()
+    elif x=='2':
+        if len(lista2)==0: # Caso Prova
+            d=0 
+            count=0 
+            for i in lista: 
+                d+=1 
+                f=input(f"Qual a resposta do aluno na questão {d} : ") 
+                if f==i: 
+                    count+=1 
+            print(f"A nota do aluno foi {count}")  
+            return sis() 
+        else:   #caso simulado
+            j=0 
+            count=0
+            for i in lista2:
+                print(i) 
+                for j in range(m): 
+                    j+=1  
+                    h=(input(f"Qual a resposta da questão {j}: ")) 
+                    for g in lista:
+                        if g==h: 
+                            count+=1 
+            print(f"O aluno acertou {count}")        
+                            
+                            
+            return sis()                                                   
+    elif x=='4':
+        print("Obrigado por usar o programa!")             
+    else: 
+        print("ESCOLHA INVÁLIDA!!!! ERRO !!!!")  
+        return sis()              
+            
+sis()
+
