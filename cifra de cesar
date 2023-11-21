@@ -1,0 +1,19 @@
+import string 
+alfa=list(string.ascii_uppercase) 
+print(alfa) 
+frase=input("Digite um frase pra  : ") 
+frase=frase.upper()  
+text=[letra for letra in frase if letra.isalpha()] 
+met=10
+print(text) 
+for i in text:
+    for j in alfa:
+        if i==j:
+            pos=alfa.index(j) 
+            if pos+met<26: 
+                inc=alfa[pos+met] 
+            else:
+                dado=(pos+met)-26 
+                inc=alfa[dado]      
+    print(inc,end=" ")
+
