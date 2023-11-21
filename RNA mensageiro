@@ -1,0 +1,35 @@
+Mol=[]
+while len(Mol)!=9:  
+    Molecula=input("Digite uma molécula de RNA mensageiro(Lembrando que deve ter 3 trincas) ex:UUUUUAUCU  \nDigite: ") 
+    Maiusculo=Molecula.upper() 
+    Mol=list(Maiusculo)  
+Ami={
+    "UUU":"Phe",
+    "CUU":"Leu",
+    "UUA":"Leu",
+    "AAG":"Lisina",
+    "UCU":"Ser",
+    "UAU":"Tyr",
+    "CAA":"Gln",
+}
+Dic=[]
+a='teste'
+b='teste2' 
+c=a 
+for i in b:
+    if i not in c:
+        a+=i 
+        print(a)
+def protein(M): 
+    lista_proteina=[]
+    Dic.append(M[:3:]) 
+    Dic.append(M[3:6:]) 
+    Dic.append(M[6:9:]) 
+    print(Dic) 
+    comp=[[item[0]+item[1]+item[2]]for item in Dic] 
+    print(comp) 
+    for i in comp:
+        for j in i: 
+            lista_proteina.append(Ami[j])
+    print(f"A proteina que você formou foi {lista_proteina[0]}-{lista_proteina[1]}-{lista_proteina[2]}")             
+protein(Mol)     
