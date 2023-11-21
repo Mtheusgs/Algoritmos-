@@ -1,0 +1,83 @@
+#Bingo  
+import random
+def lin():
+    print("="*20 + "BINGO"+ "="*20)
+lin()
+matriz=[]
+def bingo(): 
+    matriz=[]
+    lista2=[] 
+    for i in range(5):
+        lista=[]
+        for j in range(5):
+            while True:
+                num = random.randint(1,75)
+                if num not in lista2:
+                    lista2.append(num)
+                    lista.append(num)
+                    break
+        matriz.append(lista)        
+    for i in matriz:
+        print(i)    
+    while True: 
+        sorteado=random.randint(1,75)      
+        if sorteado in lista2:
+            print(f"Você tem um número no bingo {sorteado}")
+            k=lista2.index(sorteado)              
+            lista2.pop(k)  
+            lista2.insert(k,"x")
+            if lista2[0]=="x" and lista2[1]=="x" and lista2[2]=="x" and lista2[3]=="x" and lista2[4]=="x":
+                print("BINGOOOOO! VOCÊ GANHOU")
+                print("Você completou a Primeira linha") 
+                break    
+            elif lista2[5]=="x" and lista2[6]=="x" and lista2[7]=="x" and lista2[8]=="x" and lista2[9]=="x": 
+                print("BINGOOOOO! VOCÊ GANHOU") 
+                print("Você completou a Segunda linha")
+                break 
+            elif lista2[10]=="x" and lista2[11]=="x" and lista2[12]=="x" and lista2[13]=="x" and lista2[14]=="x": 
+                print("BINGOOOOO! VOCÊ GANHOU") 
+                print("Você completou a Terceira linha")
+                break
+            elif lista2[15]=="x" and lista2[16]=="x" and lista2[17]=="x" and lista2[18]=="x" and lista2[19]=="x": 
+                print("BINGOOOOO! VOCÊ GANHOU") 
+                print("Você completou a Quarta linha")
+                break 
+            elif lista2[20]=="x" and lista2[21]=="x" and lista2[22]=="x" and lista2[23]=="x" and lista2[24]=="x": 
+                print("BINGOOOOO! VOCÊ GANHOU") 
+                print("Você completou a Quinta linha")
+                break  
+            elif  lista2[0]=="x" and lista2[5]=="x" and lista2[10]=="x" and lista2[15]=="x" and lista2[20]=="x": 
+                print("BINGOOOOO! VOCÊ GANHOU") 
+                print("Você completou a Primeira coluna")
+                break 
+            elif  lista2[1]=="x" and lista2[6]=="x" and lista2[11]=="x" and lista2[16]=="x" and lista2[21]=="x": 
+                print("BINGOOOOO! VOCÊ GANHOU") 
+                print("Você completou a Segunda coluna")
+                break  
+            elif  lista2[2]=="x" and lista2[7]=="x" and lista2[12]=="x" and lista2[17]=="x" and lista2[22]=="x": 
+                print("BINGOOOOO! VOCÊ GANHOU") 
+                print("Você completou a Terceira coluna")
+                break  
+            elif  lista2[3]=="x" and lista2[8]=="x" and lista2[13]=="x" and lista2[18]=="x" and lista2[23]=="x": 
+                print("BINGOOOOO! VOCÊ GANHOU") 
+                print("Você completou a Quarta coluna")
+                break 
+            elif  lista2[4]=="x" and lista2[5]=="x" and lista2[14]=="x" and lista2[19]=="x" and lista2[24]=="x": 
+                print("BINGOOOOO! VOCÊ GANHOU") 
+                print("Você completou a Quinta coluna")
+                break   
+            elif  lista2[0]=="x" and lista2[6]=="x" and lista2[12]=="x" and lista2[18]=="x" and lista2[24]=="x": 
+                print("BINGOOOOO! VOCÊ GANHOU") 
+                print("Você completou a Diagonal (E.D)")
+                break 
+            elif  lista2[5]=="x" and lista2[8]=="x" and lista2[12]=="x" and lista2[16]=="x" and lista2[20]=="x": 
+                print("BINGOOOOO! VOCÊ GANHOU") 
+                print("Você completou a Diagonal (D.E)")
+                break  
+
+while True:
+    continuar=(input("Quer uma cartela? aperte 1 e qualquer tecla pra não.  \nSua Resposta :  ")) 
+    if continuar =="1": 
+        bingo() 
+    else: 
+        break  
