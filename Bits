@@ -1,0 +1,17 @@
+#bits 
+while True: 
+    Erro=0 
+    Acerto=0 
+    bits_dig=(input("Digite números (0 e 1) lembrando que neles não podem se repetir mais de duas vezes :  ")) 
+    bits=[letra for letra in bits_dig]  
+    print(bits)                       
+    for i in range(len(bits)-2): 
+        if bits[i]==bits[i+1]==bits[i+2]: 
+            Erro=Erro+1            
+            if Erro>=1: 
+                print("Esse formato não pode!")
+        else:
+            Acerto=Acerto+1  
+            if Acerto==len(bits)-2:
+                print("Parabéns") 
+            
