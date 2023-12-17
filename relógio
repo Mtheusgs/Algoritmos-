@@ -1,0 +1,20 @@
+import time
+def hora_atual(): 
+    hora=input("Qual a hora atua, ex(12:03:57) :\n ") 
+    numeros=hora.split(":") 
+    valores=[]  
+    for i in numeros: 
+        valores.append(int(i))  
+    while True: 
+        time.sleep(1)
+        valores[2]=valores[2]+1   
+        if valores[2]==60:
+            valores[2]=0
+            valores[1]=valores[1]+1 
+            if valores[1]==60: 
+                valores[1]=0 
+                valores[0]=valores[0]+1 
+                if valores[0]==24:
+                    valores[0]= 0
+        print(f"{valores[0]}:{valores[1]}:{valores[2]}")               
+hora_atual()
